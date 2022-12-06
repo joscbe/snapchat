@@ -18,6 +18,7 @@
 		9A9582122932E75B00A78590 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A9582112932E75B00A78590 /* GoogleService-Info.plist */; };
 		9A9582142932FE4800A78590 /* EntrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9582132932FE4800A78590 /* EntrarViewController.swift */; };
 		9A9582162932FE8000A78590 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9582152932FE8000A78590 /* CadastroViewController.swift */; };
+		9A9C5DE4293EC1F500E5492C /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C5DE3293EC1F500E5492C /* Alerta.swift */; };
 		E784CE5655FF0E3E88BA05D4 /* Pods_Snapchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A1F27429BEBA2FBBFCB1FF /* Pods_Snapchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		9A9582112932E75B00A78590 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9A9582132932FE4800A78590 /* EntrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrarViewController.swift; sourceTree = "<group>"; };
 		9A9582152932FE8000A78590 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		9A9C5DE3293EC1F500E5492C /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
 		D3A1F27429BEBA2FBBFCB1FF /* Pods_Snapchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snapchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,20 +92,37 @@
 		9A9581FC2932E30600A78590 /* Snapchat */ = {
 			isa = PBXGroup;
 			children = (
+				9A9C5DE2293EC17200E5492C /* Models */,
+				9A9C5DE1293EC13300E5492C /* ViewControllers */,
 				9A9581FD2932E30600A78590 /* AppDelegate.swift */,
 				9A9581FF2932E30600A78590 /* SceneDelegate.swift */,
-				9A9582012932E30600A78590 /* ViewController.swift */,
 				9A9582032932E30600A78590 /* Main.storyboard */,
 				9A9582062932E30800A78590 /* Assets.xcassets */,
 				9A9582082932E30800A78590 /* LaunchScreen.storyboard */,
 				9A95820B2932E30800A78590 /* Info.plist */,
 				9A9582112932E75B00A78590 /* GoogleService-Info.plist */,
+			);
+			path = Snapchat;
+			sourceTree = "<group>";
+		};
+		9A9C5DE1293EC13300E5492C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9A9582012932E30600A78590 /* ViewController.swift */,
 				9A9582132932FE4800A78590 /* EntrarViewController.swift */,
 				9A9582152932FE8000A78590 /* CadastroViewController.swift */,
 				9A8F0594293BE34600898048 /* SnapsViewController.swift */,
 				9A8F0596293BE36000898048 /* FotoViewController.swift */,
 			);
-			path = Snapchat;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9A9C5DE2293EC17200E5492C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A9C5DE3293EC1F500E5492C /* Alerta.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9C5DE4293EC1F500E5492C /* Alerta.swift in Sources */,
 				9A9582142932FE4800A78590 /* EntrarViewController.swift in Sources */,
 				9A8F0597293BE36000898048 /* FotoViewController.swift in Sources */,
 				9A9582022932E30600A78590 /* ViewController.swift in Sources */,

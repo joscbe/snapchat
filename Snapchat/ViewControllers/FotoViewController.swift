@@ -15,6 +15,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet var btnProximo: UIButton!
     
     var imagePicker = UIImagePickerController()
+    var idImagem = NSUUID().uuidString
 
     @IBAction func selecionarFoto(_ sender: Any) {
         imagePicker.sourceType = .savedPhotosAlbum
@@ -24,22 +25,32 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func ProximoPasso(_ sender: Any) {
         self.btnProximo.isEnabled = false
-        self.btnProximo.setTitle("Carregando...", for: .disabled)
+        self.btnProximo.setTitle("Carregando...", for: .normal)
         
         let armazenamento = Storage.storage().reference()
         let imagens = armazenamento.child("imagens")
         
         //Recupera Imagem
-        if let imagemSelecionada = self.imagem.image?.jpegData(compressionQuality: 0.5) {
-            //let imagemDados = imagemSelecionada.jpegData(compressionQuality: 0.5)
-            imagens.child("image.jpg").putData(imagemSelecionada, metadata: nil) { metaDados, erro in
+        if let imagemSelecionada = self.imagem.image?.jpegData(compressionQuality: 0.2) {
+            let imagemRef = imagens.child("\(self.idImagem).jpg")
+            imagemRef.putData(imagemSelecionada, metadata: nil) { metaDados, erro in
                 if erro == nil {
                     print("Sucesso ao fazer upload do arquivo!")
+                    
+                    imagemRef.downloadURL { url, erro in
+                        if erro == nil {
+                            print(url?.absoluteString)
+                        } else {
+                            
+                        }
+                    }
                     
                     self.btnProximo.isEnabled = true
                     self.btnProximo.setTitle("Próximo", for: .normal)
                 } else {
                     print("Erro ao fazer upload do arquivo!")
+                    let alerta = Alerta(titulo: "Upload Falhou", mensagem: "Erro ao fazer upload do arquivo, tente novamente!").getAlerta()
+                    self.present(alerta, animated: true)
                 }
             }
         }
@@ -50,6 +61,10 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let imagemRecuperada = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         
         self.imagem.image = imagemRecuperada
+        
+        self.btnProximo.isEnabled = true
+        self.btnProximo.backgroundColor = UIColor(red: 0.686, green: 0.322, blue: 0.871, alpha: 1)
+        
         imagePicker.dismiss(animated: true)
     }
     
@@ -57,6 +72,10 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        
+        //Desabilita botão
+        btnProximo.isEnabled = false
+        btnProximo.backgroundColor = UIColor.gray
     }
 
 }

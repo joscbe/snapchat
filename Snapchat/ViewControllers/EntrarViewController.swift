@@ -13,15 +13,6 @@ class EntrarViewController: UIViewController {
     @IBOutlet var edtEmail: UITextField!
     @IBOutlet var edtSenha: UITextField!
     
-    func alerta(titulo: String, mensagem: String){
-        let alert = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "Cancelar", style: .cancel)
-
-        alert.addAction(actionOK)
-        present(alert, animated: true)
-    }
-    
-    
     @IBAction func entrar(_ sender: Any) {
         //Recuperar dados digitados
         if let email = edtEmail.text {
@@ -31,13 +22,15 @@ class EntrarViewController: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: senha) { result, erro in
                     if erro == nil {
                         if result?.user == nil {
-                            self.alerta(titulo: "Erro ao autenticar", mensagem: "problema ao realizar autenticação, tente novamente!")
+                            let alerta = Alerta(titulo: "Erro ao autenticar", mensagem: "problema ao realizar autenticação, tente novamente!").getAlerta()
+                            self.present(alerta, animated: true)
                         } else {
                             //Redireciona o usuario para a tela principal
                             self.performSegue(withIdentifier: "loginSegue", sender: nil)
                         }
                     } else {
-                        self.alerta(titulo: "Dados incorretos", mensagem: "Verifique os dados digitados e tente novamente")
+                        let alerta = Alerta(titulo: "Dados incorretos", mensagem: "Verifique os dados digitados e tente novamente").getAlerta()
+                        self.present(alerta, animated: true)
                     }
                 }
                 

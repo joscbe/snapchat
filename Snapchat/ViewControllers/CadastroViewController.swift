@@ -14,13 +14,6 @@ class CadastroViewController: UIViewController {
     @IBOutlet var edtSenha: UITextField!
     @IBOutlet var edtConfirmaSenha: UITextField!
     
-    func alerta(titulo: String, mensagem: String){
-        let alert = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "Cancelar", style: .cancel)
-        
-        alert.addAction(actionOK)
-        present(alert, animated: true)
-    }
     
     @IBAction func criarConta(_ sender: Any) {
         let email = edtEmail.text
@@ -63,7 +56,8 @@ class CadastroViewController: UIViewController {
                                 mensagemError = "Dados dgitados estão incorretos!"
                             }
                             
-                            self.alerta(titulo: "Dados inválidos", mensagem: mensagemError)
+                            let alerta = Alerta(titulo: "Dados inválidos", mensagem: mensagemError).getAlerta()
+                            self.present(alerta, animated: true)
                             
                             print(erroR.code)
                         }
@@ -71,7 +65,8 @@ class CadastroViewController: UIViewController {
                 }
             }
         } else {
-            self.alerta(titulo: "Dados incorretos ", mensagem: "As senhas precisão ser iguais")
+            let alerta = Alerta(titulo: "Dados incorretos", mensagem: "As senhas precisão ser iguais").getAlerta()
+            self.present(alerta, animated: true)
         }
     }
     
