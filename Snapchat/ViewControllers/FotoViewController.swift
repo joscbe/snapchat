@@ -31,7 +31,7 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let imagens = armazenamento.child("imagens")
         
         //Recupera Imagem
-        if let imagemSelecionada = self.imagem.image?.jpegData(compressionQuality: 0.2) {
+        if let imagemSelecionada = self.imagem.image?.jpegData(compressionQuality: 0.1) {
             let imagemRef = imagens.child("\(self.idImagem).jpg")
             imagemRef.putData(imagemSelecionada, metadata: nil) { metaDados, erro in
                 if erro == nil {
@@ -39,9 +39,11 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     
                     imagemRef.downloadURL { url, erro in
                         if erro == nil {
-                            print(url?.absoluteString)
+                            if let urlImage = url?.absoluteString {
+                                self.performSegue(withIdentifier: "selecionarUsuario", sender: urlImage)
+                            }
                         } else {
-                            
+                            //6 Dicas para ESTUDAR PROGRAMAÇÃO e memorizar conteúdos mais fácil!
                         }
                     }
                     
@@ -66,6 +68,16 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.btnProximo.backgroundColor = UIColor(red: 0.686, green: 0.322, blue: 0.871, alpha: 1)
         
         imagePicker.dismiss(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selecionarUsuario" {
+            let usuariosViewController = segue.destination as! UsuariosTableViewController
+            
+            usuariosViewController.descricao = self.edtDescricao.text!
+            usuariosViewController.urlImagem = sender as! String
+            usuariosViewController.idImagem = self.idImagem
+        }
     }
     
     override func viewDidLoad() {
