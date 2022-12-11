@@ -40,15 +40,15 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     imagemRef.downloadURL { url, erro in
                         if erro == nil {
                             if let urlImage = url?.absoluteString {
+                                self.btnProximo.isEnabled = true
+                                self.btnProximo.setTitle("Próximo", for: .normal)
+                                
                                 self.performSegue(withIdentifier: "selecionarUsuario", sender: urlImage)
                             }
                         } else {
-                            //6 Dicas para ESTUDAR PROGRAMAÇÃO e memorizar conteúdos mais fácil!
+                            print("Erro ao recuperar caminho url da imagem!!")
                         }
                     }
-                    
-                    self.btnProximo.isEnabled = true
-                    self.btnProximo.setTitle("Próximo", for: .normal)
                 } else {
                     print("Erro ao fazer upload do arquivo!")
                     let alerta = Alerta(titulo: "Upload Falhou", mensagem: "Erro ao fazer upload do arquivo, tente novamente!").getAlerta()

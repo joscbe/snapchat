@@ -293,16 +293,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tela principal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoS-pj-hAp">
-                                <rect key="frame" x="137" y="323" width="100" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R37-wG-tE7">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="celulaSnaps" id="pK7-X7-Vse">
+                                        <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pK7-X7-Vse" id="CZp-Ne-JG8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2SN-g9-X9D" id="ZkD-74-Raw"/>
+                                    <outlet property="delegate" destination="2SN-g9-X9D" id="3u5-Zu-RIY"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ebn-en-Ldm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R37-wG-tE7" firstAttribute="leading" secondItem="ebn-en-Ldm" secondAttribute="leading" id="2qd-D0-7hb"/>
+                            <constraint firstItem="R37-wG-tE7" firstAttribute="top" secondItem="ebn-en-Ldm" secondAttribute="top" id="POK-Tq-hgO"/>
+                            <constraint firstItem="ebn-en-Ldm" firstAttribute="trailing" secondItem="R37-wG-tE7" secondAttribute="trailing" id="XQE-dO-IJn"/>
+                            <constraint firstItem="ebn-en-Ldm" firstAttribute="bottom" secondItem="R37-wG-tE7" secondAttribute="bottom" id="aVx-qi-R2J"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Snapchat" id="B2G-pz-jWT">
                         <barButtonItem key="leftBarButtonItem" title="Sair" id="bbB-S8-eJz">
@@ -316,6 +333,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableview" destination="R37-wG-tE7" id="VhE-8P-sD8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frt-lY-Pzb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
