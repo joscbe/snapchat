@@ -83,4 +83,20 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.snaps.count > 0 {
+            let snap = self.snaps[indexPath.row]
+            performSegue(withIdentifier: "detalhesSegue", sender: snap)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detalhesSegue" {
+            let detalhesViewController = segue.destination as! DetalhesSnapViewController
+            let snap = sender as! Snap
+            
+            detalhesViewController.snap = snap
+        }
+    }
 }

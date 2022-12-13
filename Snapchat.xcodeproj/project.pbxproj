@@ -22,6 +22,7 @@
 		9A9582142932FE4800A78590 /* EntrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9582132932FE4800A78590 /* EntrarViewController.swift */; };
 		9A9582162932FE8000A78590 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9582152932FE8000A78590 /* CadastroViewController.swift */; };
 		9A9C5DE4293EC1F500E5492C /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C5DE3293EC1F500E5492C /* Alerta.swift */; };
+		9ACF60F32947B3BC00AD4CE9 /* DetalhesSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF60F22947B3BC00AD4CE9 /* DetalhesSnapViewController.swift */; };
 		E784CE5655FF0E3E88BA05D4 /* Pods_Snapchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A1F27429BEBA2FBBFCB1FF /* Pods_Snapchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		9A9582132932FE4800A78590 /* EntrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrarViewController.swift; sourceTree = "<group>"; };
 		9A9582152932FE8000A78590 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		9A9C5DE3293EC1F500E5492C /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
+		9ACF60F22947B3BC00AD4CE9 /* DetalhesSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesSnapViewController.swift; sourceTree = "<group>"; };
 		D3A1F27429BEBA2FBBFCB1FF /* Pods_Snapchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snapchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 				9A8F0594293BE34600898048 /* SnapsViewController.swift */,
 				9A8F0596293BE36000898048 /* FotoViewController.swift */,
 				9A47A6D72942BD4D008F3DF9 /* UsuariosTableViewController.swift */,
+				9ACF60F22947B3BC00AD4CE9 /* DetalhesSnapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				9A8F0595293BE34600898048 /* SnapsViewController.swift in Sources */,
 				9A9581FE2932E30600A78590 /* AppDelegate.swift in Sources */,
 				9A9582162932FE8000A78590 /* CadastroViewController.swift in Sources */,
+				9ACF60F32947B3BC00AD4CE9 /* DetalhesSnapViewController.swift in Sources */,
 				9A78BEDE2943D48F007C2A7B /* Usuario.swift in Sources */,
 				9A79FACA29456363009AD10E /* Snap.swift in Sources */,
 				9A9582002932E30600A78590 /* SceneDelegate.swift in Sources */,
