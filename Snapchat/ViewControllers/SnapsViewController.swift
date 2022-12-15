@@ -55,6 +55,14 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.tableview.reloadData()
                 }
             }
+            
+            //Adiciona evento para item removido
+            snaps.observe(.childRemoved) { snapshot in
+                self.snaps.removeAll { snap in
+                    (snap.id == snapshot.key)
+                }
+                self.tableview.reloadData()
+            }
         }
     }
     
@@ -78,7 +86,7 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             let snap = self.snaps[indexPath.row]
             
-            cell.textLabel?.text = snap.descricao
+            cell.textLabel?.text = snap.nome
         }
         
         return cell
