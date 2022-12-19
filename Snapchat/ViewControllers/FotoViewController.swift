@@ -89,5 +89,9 @@ class FotoViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         btnProximo.isEnabled = false
         btnProximo.backgroundColor = UIColor.gray
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 
 }

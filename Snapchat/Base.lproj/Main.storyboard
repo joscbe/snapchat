@@ -276,6 +276,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Entrar" id="qPy-y0-VcK"/>
                     <connections>
+                        <outlet property="btnEntrar" destination="Tjk-be-2vO" id="YXq-LT-Bov"/>
                         <outlet property="edtEmail" destination="Gqa-0n-dcn" id="uJb-I0-r0J"/>
                         <outlet property="edtSenha" destination="ur3-F1-8lR" id="YZq-1d-ase"/>
                         <segue destination="kK8-Yt-Bv0" kind="presentation" identifier="loginSegue" modalPresentationStyle="currentContext" id="y6z-fE-TOA"/>
@@ -558,7 +559,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BhB-Be-Egu"/>
+        <segue reference="y6z-fE-TOA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="200" height="200"/>
